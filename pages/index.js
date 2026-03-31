@@ -3,7 +3,7 @@ function Home() {
     return (
         <div>
             <h1>Teste</h1>
-            <p>ola eu estou testando</p>
+            <p>vixe aparentemente eu errei agr vou subir de novo</p>
         </div>
     )
 
