@@ -3,7 +3,7 @@ function Home() {
     return (
         <div>
             <h1>Teste</h1>
-            <p>vixe aparentemente eu errei agr vou subir de novo</p>
+            <p>testando o deploy da vercel ?!</p>
         </div>
     )
 
