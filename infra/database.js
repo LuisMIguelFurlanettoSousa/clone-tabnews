@@ -9,13 +9,15 @@ async function query(objectQuerry) {
     password: process.env.POSTGRES_PASSWORD,
   });
 
-  client.connect();
   try {
+    client.connect();
     const result = await client.query(objectQuerry);
     return result;
   } catch (error) {
     console.log(error);
+    throw error;
   } finally {
+    // se der o erro e ele ser lançado, oque aconteceria aqui no finally ?
     await client.end();
   }
 }
