@@ -7,7 +7,7 @@ async function query(objectQuerry) {
     user: process.env.POSTGRES_USER,
     database: process.env.POSTGRES_DB,
     password: process.env.POSTGRES_PASSWORD,
-    ssl: process.env.NODE_ENV !== "development",
+    ssl: getSslValues(),
   });
 
   console.log("Credencias do postgres:", {
@@ -29,6 +29,16 @@ async function query(objectQuerry) {
     // se der o erro e ele ser lançado, oque aconteceria aqui no finally ?
     await client.end();
   }
+}
+
+function getSslValues() {
+  if (process.env.POSTGRES_CA) {
+    return {
+      ca: process.env.POSTGRES_CA,
+    };
+  }
+
+  return process.env.NODE_ENV !== "development";
 }
 
 export default {
